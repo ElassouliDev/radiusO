@@ -1,0 +1,353 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!--<link rel="stylesheet" href="styles.css" type="text/css">-->
+
+<div class="  py-3">
+
+    <div class="container">
+        <h2 class="text-center pb-3"> {ADDCRED0} </h2>
+
+
+        <div class="card px-5 py-5  ">
+            <form name="form1" method="post" action="admin.php?cont=confirm_add_credits&username={USERNAME}"
+                  onSubmit="return ConfirmMsg('{ADDCRED25}');">
+                <div class="alert alert-danger" role="alert">
+                    {ERROR}
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED1}:</label>
+                    <div class="col-sm-10">
+                        <p class="lead">{USERNAME}</p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED2}:</label>
+                    <div class="col-sm-10">
+                        <p class="lead">{SRVNAME}</p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED3}:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"
+                               name="trafficunitdl"
+                               id="trafficunitdl" value="{TRAFFICUNITDL}" size="15"
+                               maxlength="15" readonly="">
+                        <span class="badge bg-secondary"> {ADDCRED14}
+                      <input name="traffunitdl" type="hidden" id="traffunitdl" value="{TRAFFUNITDL}">
+                      <input name="traffunitadd" type="hidden" id="traffunitadd" value="{TRAFFUNITADD}">
+                      </span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED26}:</label>
+                    <div class="col-sm-10">
+                        <input name="trafficunitul" type="text" class="form-control"
+                               id="trafficunitul" value="{TRAFFICUNITUL}" size="15"
+                               maxlength="15" readonly="">
+                        <span class="badge bg-secondary">
+                            {ADDCRED14}
+                           <input name="traffunitul" type="hidden" id="traffunitul"
+                                  value="{TRAFFUNITUL}">
+                        </span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED27}:</label>
+                    <div class="col-sm-10">
+
+                        <input name="trafficunitcomb" type="text" class="form-control"
+                               id="trafficunitcomb" value="{TRAFFICUNITCOMB}" size="15"
+                               maxlength="15" readonly="">
+                        <span class="badge bg-secondary">
+                            {ADDCRED14}
+                      <input name="traffunitcomb" type="hidden" id="traffunitcomb" value="{TRAFFUNITCOMB}">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED4}:</label>
+                    <div class="col-sm-10">
+
+                        <input name="timeunitexp" type="text"
+                               class="form-control" id="timeunitexp"
+                               value="{TIMEUNITEXP} " size="15"
+                               maxlength="15" readonly="">
+                        {TIMEBASEEXP}
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED28}:</label>
+                    <div class="col-sm-10">
+                        <input name="timeunitonline" type="text"
+                               class="form-control" id="timeunitonline"
+                               value="{TIMEUNITONLINE} " size="15"
+                               maxlength="15" readonly="">
+                        {TIMEBASEONLINE}
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED5}:</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="ADDCRED15" name="credaddmode" value="0"
+                                   {CHKNORMAL}
+                                   onClick="setCredAddMode()">
+                            <label class="form-check-label" for="ADDCRED15"> {ADDCRED15}</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="ADDCRED16" name="credaddmode" value="1"
+                                   {CHKADDIT}
+                                   onClick="setCredAddMode()">
+
+                            <label class="form-check-label" for="ADDCRED16"> {ADDCRED16}</label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED6
+                        }:</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="ADDCRED17" name="paymode" value="0"
+                                   {SELECTEDCASH}
+                            >
+                            <label class="form-check-label" for="ADDCRED17"> {ADDCRED17}</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="ADDCRED18" name="paymode" value="1"
+                                   {SELECTEDTRANSFER}
+                            >
+
+                            <label class="form-check-label" for="ADDCRED18"> {ADDCRED18}</label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED7}:</label>
+                    <div class="col-sm-10">
+                        <input name="unitprice" type="text" class="{INPUTCLASS} form-control"
+                               id="unitprice" value="{UNITPRICE}"
+                               onChange="unitPriceChanged()" {READONLY}>
+
+                        <div class="badge bg-primary">
+                            {CURRENCY}
+                            <input name="price" type="hidden" id="price">
+                            <input name="vat" type="hidden" id="vat">
+                        </div>
+                        <div class="form-check form-check-inline">
+
+                            <input name="lock" class="form-check-input" id="ADDCRED19" type="radio" value="0"
+                                   checked {CHKLOCKUNIT}>
+                            <label class="form-check-label" for="ADDCRED19"> {ADDCRED19}</label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED8}:</label>
+                    <div class="col-sm-10">
+                        <input name="amount" type="text" class="form-control"
+                               id="amount2" value="{AMOUNT}"
+                               onChange="amountChanged()">
+
+
+                        <input name="pricenormal" type="hidden"
+                               id="pricenormal2"
+                               value="{UNITPRICENORMAL}">
+                        <input name="pricenormalvat" type="hidden"
+                               id="pricenormalvat2"
+                               value="{UNITPRICENORMALVAT}">
+                        <input name="priceadd" type="hidden" id="priceadd2"
+                               value="{UNITPRICEADD}">
+                        <input name="priceaddvat" type="hidden"
+                               id="priceaddvat2" value="{UNITPRICEADDVAT}">
+                        <input name="vatpercent" type="hidden" id="vatpercent2"
+                               value="{VATPERCENT}">
+
+
+                        <div class="form-check form-check-inline">
+
+                            <input class="form-check-input" id="ADDCRED19" type="radio" name="lock" value="1"
+                                   {CHKLOCKAMOUNT}>
+                            <label class="form-check-label" for="ADDCRED19"> {ADDCRED29}</label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED10}:</label>
+                    <div class="col-sm-10">
+                        <input name="totalprice" type="text"
+                               class="{INPUTCLASS} form-control"
+                               id="totalprice"
+                               value="{TOTALPRICE}"
+                               onChange="totalpriceChanged()"
+                               {READONLY}>
+
+                        <span class="badge bold text-dark">
+                            {CURRENCY}
+                            <span class="text-danger">{BALANCE}</span>
+                        </span>
+
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED12}:</label>
+                    <div class="col-sm-10">
+                        <textarea name="remark" cols="50" rows="3"
+                                  id="remark" class="form-control"
+                                  onKeyDown="textCounter(document.form1.remark, document.form1.actremlen, 400)"
+                                  onKeyUp="textCounter(document.form1.remark, document.form1.actremlen, 400)">{REMARK}</textarea>
+                        <input name="actremlen" type="hidden" id="actremlen">
+
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">{ADDCRED13}:</label>
+                    <div class="col-sm-10">
+                        <input name="comment" type="text" class="form-control"
+                               id="comment" value="{COMMENT}" size="50"
+                               maxlength="70">
+
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                   <div class="text-danger text-center bold">
+                      {ADDCREDITSSTR}
+
+                   </div>
+                    <div class="text-danger text-center bold py-3">
+                        <input class="btn btn-outline-primary btn-lg "   name="Submit" type="submit" id="submit" value="{ADDCRED20}">
+
+                   </div>
+                </div>
+
+
+            </form>
+
+
+            <div> <p><strong><font color="#FF0000">{ADDCRED21}</font><br>
+            </strong> {ADDCRED22}</p>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script type=text/javascript>
+    focusField("amount");
+    setCredAddMode();
+
+    function focusField(name) {
+        for (var i = 0; i < document.forms.length; ++i) {
+            var obj = document.forms[i].elements[name];
+            if (obj) {
+                if (obj.length) {
+                    obj = obj[0];
+                }
+                if (obj.focus) {
+                    obj.focus();
+                }
+            }
+        }
+    }
+
+    function setCredAddMode() {
+        var credaddmode = document.form1.credaddmode[0].checked;
+
+        if (credaddmode) {
+            // normal mode selected
+            document.form1.trafficunitdl.value = document.form1.traffunitdl.value;
+            document.form1.trafficunitul.value = document.form1.traffunitul.value;
+            document.form1.trafficunitcomb.value = document.form1.traffunitcomb.value;
+            document.form1.price.value = document.form1.pricenormal.value;
+            document.form1.vat.value = document.form1.pricenormalvat.value;
+            price = parseFloat(document.form1.pricenormal.value) + parseFloat(document.form1.pricenormalvat.value);
+        } else {
+            // additional mode selected
+            document.form1.trafficunitdl.value = document.form1.traffunitadd.value;
+            document.form1.trafficunitul.value = document.form1.traffunitadd.value;
+            document.form1.trafficunitcomb.value = document.form1.traffunitadd.value;
+            document.form1.price.value = document.form1.priceadd.value;
+            document.form1.vat.value = document.form1.priceaddvat.value;
+            price = parseFloat(document.form1.priceadd.value) + parseFloat(document.form1.priceaddvat.value);
+        }
+
+        document.form1.unitprice.value = price.toFixed(6);
+
+        totalprice = document.form1.unitprice.value * document.form1.amount.value;
+        document.form1.totalprice.value = totalprice.toFixed(2);
+    }
+
+    function unitPriceChanged() {
+        totalprice = document.form1.unitprice.value * document.form1.amount.value;
+        document.form1.totalprice.value = totalprice.toFixed(2);
+
+        document.form1.price.value = document.form1.unitprice.value / (document.form1.vatpercent.value / 100 + 1);
+        document.form1.vat.value = document.form1.unitprice.value - document.form1.price.value;
+    }
+
+    function amountChanged() {
+        document.form1.amount.value = Math.round(document.form1.amount.value);
+
+        totalprice = document.form1.unitprice.value * document.form1.amount.value;
+        document.form1.totalprice.value = totalprice.toFixed(2);
+    }
+
+    function totalpriceChanged() {
+        if (document.form1.lock[0].checked) {
+            amount = document.form1.totalprice.value / document.form1.unitprice.value;
+            document.form1.amount.value = Math.round(amount);
+
+            totalprice = document.form1.unitprice.value * document.form1.amount.value;
+            document.form1.totalprice.value = totalprice.toFixed(2);
+        } else {
+            unitprice = document.form1.totalprice.value / document.form1.amount.value;
+            document.form1.unitprice.value = unitprice.toFixed(6);
+
+            document.form1.price.value = document.form1.unitprice.value / (document.form1.vatpercent.value / 100 + 1);
+            document.form1.vat.value = document.form1.unitprice.value - document.form1.price.value;
+        }
+    }
+
+</script>
+<script language="JavaScript" src="scripts/helper.js"
+        type="text/JavaScript"></script>

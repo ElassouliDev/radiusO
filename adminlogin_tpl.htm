@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>{ACPLOGIN5}</title>
+<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-lg-offset-4 col-md-5 col-md-offset-13 col-sm-6 col-sm-offset-3">
+<p class="text-center" style="margin-top: 11%; margin-bottom: 11%;"></p>
+
+<div class="card" style="box-shadow: 0 0 6px 1px rgb(115 103 240 / 60%);">
+<div class="panel-heading text-center" style="font-size: 14px ;color: #5d63ff;">{ACPLOGIN0}
+</div>
+<center><img src="assets/img/logo.png" style="margin-top:7%;"></center>
+<div class="panel-body" style="padding: 10%;">
+<form name="form1" method="post" action="admin.php?cont=login" onSubmit="return login(this);">
+<div class="input-group margin-bottom-sm">
+<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+<input class="form-control input-lg" name="managername" type="text" class="normal" id="managername" value="{MANAGERNAME}" size="20" maxlength="32" placeholder="{ACPLOGIN1}">
+</div>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+<input class="form-control input-lg" name="password" type="password" class="normal" id="password" size="20" maxlength="32" placeholder="{ACPLOGIN2}">
+</div>
+<div class="form-group text-center" style=" margin: 15px;">
+<label>{ACPLOGIN6}:</label>
+<select class="" name="lang" id="lang" onChange="change_lang()">
+{LANGLIST}
+</select>
+</div>
+<center><input class="btn btn-lg btn-primary btn-block" style="width: 80%" type="submit" name="Submit" value="{ACPLOGIN3}"></center>
+<SCRIPT type=text/javascript><!--
+if (document.form1.managername.value == "")
+  focusField("managername");
+else
+  focusField("password");
+
+function focusField(name)
+{
+  for(var i = 0; i < document.forms.length; ++i) {
+    var obj = document.forms[i].elements[name];
+    if (obj) {
+      if (obj.length) { obj = obj[0]; }
+      if (obj.focus) { obj.focus(); }
+    }
+  }
+}
+
+function change_lang()
+{
+  len = document.form1.lang.length;
+
+  for (i = 0; i < len; i++) 
+  {
+    if (document.form1.lang[i].selected)
+      lang = document.form1.lang[i].text;
+  }
+  window.location="admin.php?cont=change_lang&lang=" + lang;
+} 
+//--> </SCRIPT>
+          <script src="md5.js"></script>
+          <script language="JavaScript"><!--
+function login(form)
+{
+	form['md5'].value = hex_hmac_md5(form['managername'].value, hex_md5(form['password'].value) );
+	form['password'].value = '';
+	return true;
+}
+//--></script>
+<input type="hidden" name="md5" value="">
+<input name="url" type="hidden" id="url" value="{URL}">
+</form>
+</div>
+</div>
+</br>
+
+<center><alert class="h5 text-danger">{ERROR}</alert></center>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container-fluid">
+<p class="text-center text-muted" style="font-size: 10px; margin-top: 8px">&nbsp;</p>
+</div>
+</footer>
+</body>
+</html>
